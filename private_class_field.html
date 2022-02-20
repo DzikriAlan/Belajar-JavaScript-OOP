@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>private class field</title>
+    </head>
+
+    <body>
+        <script>
+            
+        class Counter{
+            #counter = 0; // kalo " # " tandanya private (hanya bisa di akses di dalam classnya saja) 
+
+            increment(){
+                this.#counter++;
+            }
+
+            decrement(){
+                this.#counter--;
+            }
+
+            get(){
+                return this.#counter;
+            }
+        }
+
+        const counter = new Counter();
+
+        counter.increment();
+        counter.increment();
+        counter.increment();
+        counter.increment();
+        counter.increment();
+
+        console.info(counter.get());
+
+        counter.counter = 100; // kalo ngakses nya ga make crash dia bisa ngubah (tapi kalo make crash nantinya error )
+        // counter.#counter = 123; // error
+
+        console.info(counter);
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>private method</title>
+    </head>
+
+    <body>
+        <script>
+            
+            class Person{
+
+                say(name){
+                    if(name){ // jika name itu ada
+                        this.#sayWithName(name);
+                    }else{
+                        this.#sayWithName();
+                    }
+                }
+
+                // kasih crash " # ", biar method nya private
+                #sayWithoutName(){ 
+                    console.info("Hello");
+                }
+
+                #sayWithName(name){
+                    console.info(`Hello ${name}`);
+                }
+                // btw, kalo mau akses private method dari luar class mau ga mau dibungkus dulu make constructor atau method yang public (nantinya kaya diatas tuh private methodnya di bungkus make constructor)
+            }
+
+            const marvel = new Person();
+            marvel.say("thanos"); // ini bisa, method nya akan berjalan karena terbungkus oleh constructor atau method yang public
+            marvel.#sayWithoutName(); // error, karena dia ada crashnya yang berarti sifatnya private
+
+        </script>
+    </body>
+</html>

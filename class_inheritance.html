@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>class inheritance</title>
+    </head>
+
+    <body>
+        <script>
+            
+        class Employee{
+            sayHello(name){ // ini masuknya ke prototype nya Employee
+                console.info(`Hello ${name}, my name is employee ${this.name}`);
+            }
+        }
+
+        // extends adalah keyword inheritance, jadi class Manager akan mewarisi sifat sifat yang ada di class Employee
+        class Manager extends Employee{
+            sayHello(name){ // ini masuknya ke prototype nya Manager
+                console.info(`Hello ${name}, my name is manager ${this.name}`);
+            }
+        }
+
+        const marvel = new Employee(); // object instance akan otomatis punya prototype
+        marvel.name = "thor"; // ini masuknya ke object instance
+        marvel.sayHello("thanos");
+
+        const dc = new Manager();
+        dc.name = "flash";
+        dc.sayHello("batman");
+
+        /*ini akan menghasilkan name dan prototype saja, (kalo prototype object instannya dibuka maka akan ada sayHello, dan dia masuknya ke prototypenya employee*/
+        console.info(marvel);
+
+        console.info(dc);
+
+        </script>
+    </body>
+</html>

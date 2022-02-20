@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>protoptype inheritance</title>
+    </head>
+
+    <body>
+        <script>
+            
+            function Employee(name){
+                this.name = name;
+            }
+
+            function Manager(name){
+                this.name = name;
+            }
+
+            // Manager.prototype = Employee.prototype; // salah
+
+            // cara protoype inheritance
+            // kalo kaya gini berarti protonya manager diwarisi oleh Employee.prototype
+            Manager.prototype = Object.create(Employee.prototype);
+
+            Manager.prototype.sayHello = function (name){
+                console.info(`Hello ${name}, My name is Manager ${this.name}`);
+            }
+
+            Employee.prototype.sayHello = function (name){
+                console.info(`Hello ${name}, My name is Employee ${this.name}`);
+            }
+
+            const employee = new Employee("Thanos");
+            employee.sayHello("Marvel");
+
+            const manager = new Manager("Flash");
+            manager.sayHello("DC");
+
+            console.info(employee);
+            console.info(manager);
+
+        </script>
+    </body>
+</html>

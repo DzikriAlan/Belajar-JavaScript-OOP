@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>super constructor</title>
+    </head>
+
+    <body>
+        <script>
+            
+        class Employee{
+            constructor(firstName){
+                this.firstName = firstName;
+            }
+            
+            sayHello(name){
+                console.info(`Hello ${name}, my name is employee ${this.firstName}`);
+            }
+        }
+
+        class Manager extends Employee{
+            constructor(firstName, lastName){
+                /*intinya kalo kita pengen buat constructor di class child, kita wajib panggil ulang constructor parent nya dengan menggunakan kata "super" (itu kalo parent nya ada constructornya, kalo ga ada tulis "super(); aja")*/
+                // di javascript parameter itu opsional (boleh pake boleh ga)
+
+                /*constructor dan method itu masuknya ke prototype, selain itu nempel di object instance*/
+                super();
+                this.lastName = lastName;
+            }
+            
+            sayHello(name){
+                console.info(`Hello ${name}, my is manager ${this.lastName}`);
+            }
+        }
+
+        const marvel = new Employee("thor");
+        marvel.sayHello("thanos");
+
+        const dc = new Manager("batman", "superman");
+        dc.sayHello("flash");
+
+        console.info(marvel);
+        console.info(dc);
+
+        </script>
+    </body>
+</html>

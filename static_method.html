@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>static method</title>
+    </head>
+
+    <body>
+        <script>
+
+        /* jika method di tambahkan static, artinya method tersebut jadi milik class nya, bukan prototype
+            dan untuk mengakses method tersebut, kita juga bisa seperti mengakses static class field*/
+            
+        class MathUlti{
+
+            static sum(...numbers){ // tambahkan kata kunci static sebelum menulis nama method nya
+                let total = 0;
+                for (const number of numbers){
+                    total += number;
+                }
+                return total;
+            }
+        }
+
+        const result = MathUlti.sum(1, 1, 1, 1, 1); // jika ingin mengakses method static harus menyertakan nama method nya terlebih dahulu
+        console.info(result);
+
+        const apa = new MathUlti;
+        console.info(apa)
+
+
+        </script>
+    </body>
+</html>

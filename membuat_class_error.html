@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>class error</title>
+    </head>
+
+    <body>
+        <script>
+        
+        class ValidationError extends Error{
+            constructor(message, field){
+                super(message);
+                this.field = field;
+            }
+        }
+
+        class MathUtil{
+            static sum(...numbers){
+                if(numbers.length === 0){
+                    throw new ValidationError("Total parameter harus lebih dari 0", "numbers");
+                }
+
+                let total = 0;
+                for (const number of numbers){
+                    total += number;
+                }
+                return total;
+            }
+        }
+
+        try{
+            console.info(MathUtil.sum());
+            console.info("thanos");
+        } catch(error){
+            /* membuat class error manual dapat menyisipkan informasi tambahan. contohnya dibawah ini yang informasi tambahan
+                adalah error.field*/
+            if (error instanceof ValidationError){ // jika error berupa ValidationError
+                /* error itu adalah instance dari validationerror, karena validationerror kan extends dari class error, jadi segala sesuatu dari class error
+                    akan menjadi turunan dari class validationerror. jadi memang benar kalo error itu instance dari validationerror (kan dia turunan dari class error*/
+
+                    // error instanceof validationError, kita menggunakan instanceof untuk mengecek jenis error nya apa, apakah jenis error validationerror? atau api error?, databaseerror?
+                console.info(`Terjadi error di field ${error.field} dengan error ${error.message}`);
+            } else{
+                console.info(`terjadi error : ${error.message}`);
+            }
+
+        } finally{
+            console.info("Program Selesai");
+        }
+
+        console.info("thanos");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>getter setter class</title>
+    </head>
+
+    <body>
+        <script>
+            
+            /*Getter:
+                * Mengambil data dari property asli lalu di return.
+                * Atau bisa juga sebelum di return, datanya bisa di olah terlebih dahulu. Contoh, misalnya melakukan pengecekan 
+                  apakah property tersebut adalah null atau tidak null.
+
+            Setter:
+                * Setter digunakan untuk menerapkan nilai kepada sesuatu property.
+                * Atau bisa juga sebelum di simpan nilainya, datanya bisa di olah terlebih dahulu. Contoh, misalnya ingin men-encrypt
+                  sebuah password sebelom di simpan di Javascript class.*/
+
+        class angka{
+            constructor(numb){
+                this.numb = numb;
+            }
+
+            get nomor(){
+                return `${this.numb}`;
+            }
+
+            set nomor(value){
+                this.numb = value;
+                this.numb++;
+            }
+        }
+
+        const marvel = new angka(2);
+        console.info(marvel);
+        console.info(marvel.nomor); // adalah sebenarnya sedang memanggil metode get yang kita sudah tulis di atas.
+
+        marvel.nomor = 3; // sebenarnya kita akan memanggil metode dari set tersebut. Javascript bisa mengetahui ini dari symbol = nya.
+        console.info(marvel);
+        console.info(marvel.nomor); 
+
+        // get set di javascript itu, jika kita sudah mengset sesuatu field maka field itu akan mengubah nilai secara keseluruhan
+        
+        /* soalnya program ini kalo di compile maka nilai nya 4 semua (kalo di buka person nya). karena ya tadi alasannya yang diatas*/
+
+
+        </script>
+    </body>
+</html>

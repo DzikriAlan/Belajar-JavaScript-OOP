@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>operator instanceof</title>
+    </head>
+
+    <body>
+        <script>
+        
+        /* Operator instanceof itu untuk mengecek apakah sebuah object  merupakan instance dari class tertentu atau bukan
+        
+           operator instance of akan menghasilkan boolean ,true jika object tersebut adalah instance object nya, atau false jika bukan*/
+            
+        class Employee{
+            firstName = "thanos";
+
+
+        }
+
+        class Manager extends Employee{
+
+        }
+
+        const marvel = new Employee();
+        const dc = new Manager();
+
+        // typeof itu untuk menentukan kalo nama yang kita tulis (misal marvel) itu ditulis sebagai apa (object kah atau yang lain atau apa kah). jadi cara baca typeof itu ("ditulis sebagai")
+        console.info(typeof marvel); // cara bacanya. marvel ditulis sebagai apa
+        console.info(typeof dc); // cara bacanya. dc ditulis sebagai apa
+        // hasil diatas adalah object karena marvel dan dc adalah object
+
+        console.info(typeof marvel.firstName); // ini hasilnya adalah string. karena firstName diatas value nya adalah string
+
+        // ini versi inheritance
+        console.info(marvel instanceof Employee); // true
+        console.info(marvel instanceof Manager); // false
+
+        console.info(dc instanceof Employee); // true, karena disini make inheritance jadi dc juga menjadi object dari class Employee (karena turunan dari Emoployee)
+        console.info(dc instanceof Manager); // true
+
+        // ini versi ga make inheritance
+        // console.info(marvel instanceof Employee); // true
+        // console.info(marvel instanceof Manager); // false
+
+        // console.info(dc instanceof Employee); // false, karena dc itu bukan object dari class Employee 
+        // console.info(dc instanceof Manager); // true
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>error handling</title>
+    </head>
+
+    <body>
+        <script>
+            
+        class MathUlti{
+
+            static sum(...numbers){
+                if(numbers.length === 0){
+                    /*kita perlu memberitahu program kita, bahwa kita akan mentrigger sebuah error terjadi, atau istilahnya adalah melempar error (throw error)
+                    
+                    untuk melempar error, kita bisa gunakan kata kunci throw, diikuti dengan instance object errornya*/ 
+                    throw new Error("Total parameter harus lebih dari 0"); 
+                    /* total parameter harus lebih dari 0, itu adalah pesan yang akan di lempar ke constructor class Error
+                        nah untuk melemparnya kita make kata kunci throw (jadi mungkin itu gunanya throw, yaitu untuk melempar pesan ke constructor class error)*/
+                }
+
+                let total = 0;
+                for (const number of numbers){
+                    total += number;
+                }
+                return total;
+            }
+        }
+
+        // try catch itu untuk menangkap error
+
+        try{
+            // kalo di block try nya ada error maka akan ditangkap errornya (jika dibawah nya ada program lagi maka itu tidak dieksekusi)
+            console.info(MathUlti.sum());
+            console.info("thanos"); // tidak dieksekusi
+        } catch(error){ 
+            // kalo misalkan di try ada yang error, maka akan kita apa kan (itulah fungsi nya catch)
+            console.info(`terjadi error : ${error.message}`);
+        } finally{
+            /*block finally ini akan selalu dieksekusi setelah try catch selesai, entah terjadi error atau tidak, block finnaly akan selalu dieksekusi*/
+            console.info("Program Selesai");
+        }
+
+        console.info("thanos");
+
+        class Counter{
+            #counter = 1;
+
+            /* kata kunci finally juga bisa digunakan tanpa perlu menggunakan catch, jadi abis try bisa langsung finnaly. try finnaly ini digunakan dalam kasus tertentu*/
+            next(){
+                // kalo kaya gini kan yang increment nya ga jalan karena keburu di return
+                // return this.#counter;
+                // this.#counter++;
+
+                // maka dari itu kita make try finnaly biar hal yang diatas bisa diatasi
+                try{
+                    return this.#counter;
+                }finally{
+                    this.#counter++;
+                }
+            }
+        } 
+
+        const counter = new Counter();
+        console.info(counter.next());
+        console.info(counter.next());
+        console.info(counter.next());
+        console.info(counter.next());
+        console.info(counter.next());
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>public class field</title>
+    </head>
+
+    <body>
+        <script>
+        
+        /*kalo class ucah make public class field maka kalo udah jadi keliatannya kaya pembuatan class di c++*/
+            
+        class Customer{
+            // field itu property yang berisi value
+            /* untuk membuat public class field, kita bisa langsung buat nama field dengan value nya selevel dengan method
+            
+                jika kita tidak memasukkan value ke dalam field tersebut, artyinya field tersebut, artinya field tersebut memiliki value undefined*/
+            // biasanya struktur nya public class field -> constructor -> method method nya
+            firstName;
+            lastName;
+            balance = 0;
+
+            constructor(firstName, lastName){
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+
+            sayHello(){
+
+            }
+        }
+
+        const marvel = new Customer("thor", "thanos");
+        console.info(marvel);
+
+
+        </script>
+    </body>
+</html>

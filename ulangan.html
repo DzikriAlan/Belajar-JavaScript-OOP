@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>ulangan oop</title>
+    </head>
+
+    <body>
+        <script>
+
+            // constructor, super constructor super method
+        {
+            class Parent{
+                constructor(name){this.name = name}
+                sayHello(name){console.info(`Hello ${name} perkenalkan nama saya ${this.name}`)}
+            }
+
+            class Child extends Parent{
+                constructor(name){super(); this.name = name}
+                sayHay(name){console.info(`Hay ${name} perkenalkan nama saya ${this.name}`)
+                super.sayHello("Thanos");}
+            }
+
+            const parent  = new Parent("Ronaldo");
+            const child = new Child("Rooney");
+
+            parent.sayHello("Ultron");
+            child.sayHay("Argus");
+
+            console.info(parent);
+            console.info(child);
+
+        }
+
+            // membuat constructor function
+
+           {
+                function marvel(firstName, middleName, lastName){
+                    this.firstName = firstName;
+                    this.middleName = middleName;
+                    this.lastName = lastName;
+                    console.info(`${this.firstName} ${this.middleName} ${this.lastName}`)
+                }
+
+                marvel("Eko", "Khannedy", "Thanos")
+           }
+
+            // membuat function constructor inheritance
+            
+        {
+            function consin(first, second){
+                this.first = first;
+                this.second = second;
+                this.sayHello = function(){console.info(`Hello ${this.first} ${this.second} ${this.last}`)}
+            }
+
+            function conson(first, second, last){
+                this.last = last;
+                consin.call(this, first, second);
+            }
+
+            const una = new conson("Eko" , "Kurniawan", "Ultron");
+            una.sayHello();
+            console.info(una);
+        }
+            
+            /* error handling (throw error, try catch finally, try finally)*/
+            
+            {
+                class mathUlti{
+                    static sum(nama, ...jumlah){
+                        if(jumlah.length === 0){
+                            throw new Error(`Parameter harus lebih dari nol!`);
+                        }
+
+                        let nol = 0;
+                        for(let angka of jumlah){
+                            nol += angka;
+                        }
+
+                        return `Buah ${nama}, ada ${nol}`;
+                    }
+                }
+
+                try{
+                    console.info(mathUlti.sum("Mangga"));
+                }catch(error){
+                    console.info(`Terjadi Error dengan pesan : ${error.message}`);
+                }finally{
+                    console.info("Program Selesai!");
+                }
+            }
+
+            // getter setter
+            class geset{
+                constructor(first, second){
+                    this.first = first;
+                    this.second = second;
+                }
+
+                get nomor(){return this.second}
+                set nomor(asing){this.second = asing; this.second++}
+            }
+
+            const seget = new geset(1,2);
+            console.info(seget);
+            console.info(seget.nomor);
+            seget.nomor = 20;
+
+            console.info(seget);
+            console.info(seget.nomor);
+            seget.nomor = 30;
+
+            console.info(seget);
+            console.info(seget.nomor);
+            seget.nomor = 40;
+
+            console.info(seget);
+            console.info(seget.nomor);
+
+            
+            // prototype inheritance
+            {
+               function Employee(name){
+                   this.name = name;
+               }
+
+               function Manager(name){
+                   this.name = name;
+               }
+
+               Manager.prototype = Object.create(Employee.prototype);
+               Manager.prototype.sayHello = function(name) {console.info(`Hello ${this.name}, perkenalkan nama saya ${name} dari Manager!`)};
+               Employee.prototype.sayHay = function(name) {console.info(`Hay ${this.name} perkenalkan nama saya ${name} dari Employee!`)};
+
+               const employee = new Employee("Thanos");
+               const manager = new Manager("Ultron");
+
+               employee.sayHay("Leon");
+               manager.sayHello("King");
+               manager.sayHay("Panda");
+
+               console.info(employee);
+               console.info(manager);
+               
+            }
+        
+        </script>
+    </body>
+</html>

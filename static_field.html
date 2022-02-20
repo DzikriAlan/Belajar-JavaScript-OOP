@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>static field</title>
+    </head>
+
+    <body>
+        <script>
+
+        /* kata kunci static adalah kata kunci yang bisa kita tambahkan sebelum atau method. dia nanti berada di class nya, jadi bukan di instance object dan bukan di prototype.*/
+            
+        class Configuration{
+            static name = "Belajar JavaScript OOP";
+            static version = 1.0;
+            static author = "thanos soulmaze";
+        }
+
+        const config = new Configuration();
+        console.info(config);
+
+        Configuration.author = "thanos aja"; // jika ingin mengkases sebuah field atau method static, maka harus menyertakan nama class nya terlebih dahulu
+
+        console.info(Configuration.name); // jika ingin mengkases sebuah field atau method static, maka harus menyertakan nama class nya terlebih dahulu
+        console.info(Configuration.version); // jika ingin mengkases sebuah field atau method static, maka harus menyertakan nama class nya terlebih dahulu
+        console.info(Configuration.author); // jika ingin mengkases sebuah field atau method static, maka harus menyertakan nama class nya terlebih dahulu
+
+
+        </script>
+    </body>
+</html>

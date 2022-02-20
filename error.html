@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>error</title>
+    </head>
+
+    <body>
+        <script>
+        
+        /*semua class error di JavaScript selalu berujung di class Error, artinya class Error adalah superclass untuk semua jenis error di JavaScript
+        
+        contoh class error yang terdapat di JavaScript contohnya SyntaxError, TypeError, EvalError dan lain-lain*/
+        class MathUlti{
+
+            static sum(...numbers){
+
+                if(numbers.length === 0){
+                    /*kita perlu memberitahu program kita, bahwa kita akan mentrigger sebuah error terjadi, atau istilahnya adalah melempar error (throw error)
+                    
+                    untuk melempar error, kita bisa gunakan kata kunci throw, diikuti dengan instance object errornya*/ 
+                    throw new Error("Total parameter harus lebih dari 0"); 
+                    /* total parameter harus lebih dari 0, itu adalah pesan yang akan di lempar ke constructor class Error
+                        nah untuk melemparnya kita make kata kunci throw (jadi mungkin itu gunanya throw, yaitu untuk melempar pesan ke constructor class error)*/
+                }
+
+                let total = 0;
+                for (const number of numbers){
+                    total += number;
+                }
+                return total;
+            }
+        }
+
+        const result = MathUlti.sum(1, 1, 1, 1, 1); 
+        console.info(result); // ini akan berjalan (tampil di console)
+
+        /* jika terjadi error, maka otomatis kode program kita akan terhenti, dan kita bisa melihat detail errornya di console di aplikasi browser kita*/
+        console.info(MathUlti.sum()); // ini kan error, nah kalo error program akan stop (tidak melanjutkan nya lagi)
+        console.info("thanos"); // ini ga tampil karena diatasnya error
+
+        </script>
+    </body>
+</html>

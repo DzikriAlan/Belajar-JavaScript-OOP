@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Constructor Inheritance</title>
+    </head>
+
+    <body>
+        <script>
+            /*constructor inheritance (function) itu mengcopy kode yang ada di constructor lain ke constructor yang kita mau */
+            function Employee(firstName){
+                this.firstName = firstName;
+                this.sayHello = function (name){
+                    console.info(`Hello ${name}, My name is ${this.firstName}`);
+                }
+            }
+
+            function Manager(firstName, lastName){
+                this.lastName = lastName;
+                // untuk mengcopy constructor lain, kita bisa menggunakan NamaConstructor.call(this, parameter);
+                Employee.call(this,firstName);
+            }
+
+            const batman = new Manager("Flash", "Thanos");
+            console.info(batman);
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>method class</title>
+    </head>
+
+    <body>
+        <script>
+            
+        class Person{
+            constructor(name){
+                this.name = name;
+            }
+            
+            /*sebenarnya kalo kita bikin function di class, dia itu adanya di prototype, bukan ga nempel ke instance object (tapi sama aja gimanapus juga,
+                soalnya ga masalah juga) (itu mah cuma beheind the scene)*/
+
+                // nulisnya langsung nama function nya aja
+            sayHello(name){
+                console.info(`Hello ${name}, my name is ${this.name}`);
+            }
+        }
+
+        const marvel = new Person("thor"); // ini instance object
+        console.info(marvel);
+        marvel.sayHello("thanos");
+
+        const dc = new Person("Batman"); // ini instance object
+        console.info(dc);
+        dc.sayHello("thanos");
+
+
+        </script>
+    </body>
+</html>
